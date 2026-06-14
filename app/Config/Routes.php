@@ -45,3 +45,5 @@ $routes->group('admin', ['filter' => 'authFilter'], function($routes) {
     $routes->get('ajax', 'AjaxController::index');
     $routes->get('ajax/getData', 'AjaxController::getData');
     $routes->delete('ajax/delete/(:num)', 'AjaxController::delete/$1');
+
+    $routes->resource('post');
