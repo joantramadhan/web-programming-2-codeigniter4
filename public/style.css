@@ -1,0 +1,191 @@
+/* CSS VARIABLES - Mudahkan kustomisasi warna di satu tempat */
+:root {
+    --primary-color: #1e5fa3;
+    --primary-dark: #144a82;
+    --bg-light: #f4f4f4;
+    --text-dark: #333;
+    --white: #ffffff;
+    --gray-light: #eee;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+/* RESET & BASE STYLES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+}
+
+/* CONTAINER */
+#container {
+    max-width: 1100px; /* Gunakan max-width agar tidak kaku */
+    margin: 20px auto;
+    background: var(--white);
+    box-shadow: var(--shadow);
+    border-radius: 8px; /* Tambahkan sedikit lengkungan agar modern */
+    overflow: hidden;
+}
+
+/* HEADER */
+header {
+    padding: 30px 20px;
+    background: var(--white);
+    border-bottom: 3px solid var(--primary-color);
+}
+
+header h1 {
+    font-size: 2rem;
+    color: var(--primary-color);
+}
+
+/* NAVBAR - Menggunakan Flexbox */
+nav {
+    background: var(--primary-color);
+    display: flex;
+    flex-wrap: wrap; /* Supaya menu turun ke bawah jika layar sempit */
+}
+
+nav a {
+    display: inline-block;
+    color: var(--white);
+    padding: 14px 20px;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+nav a:hover,
+nav a.active {
+    background: var(--primary-dark);
+}
+
+/* WRAPPER */
+#wrapper {
+    display: flex;
+    flex-wrap: wrap; /* Penting untuk responsivitas */
+}
+
+/* MAIN CONTENT */
+#main {
+    flex: 7; /* Lebih fleksibel dibanding width % */
+    padding: 25px;
+    min-width: 300px;
+}
+
+/* SIDEBAR */
+#sidebar {
+    flex: 3;
+    background: #fafafa;
+    padding: 25px;
+    border-left: 1px solid var(--gray-light);
+    min-width: 250px;
+}
+
+/* WIDGET BOX */
+.widget-box {
+    margin-bottom: 25px;
+    background: var(--white);
+    border-radius: 5px;
+    overflow: hidden;
+    border: 1px solid #e0e0e0;
+}
+
+.widget-box .title {
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 12px 15px;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.widget-box ul {
+    list-style: none;
+}
+
+.widget-box ul li {
+    border-bottom: 1px solid var(--gray-light);
+}
+
+.widget-box ul li:last-child {
+    border-bottom: none;
+}
+
+.widget-box ul li a {
+    display: block;
+    padding: 12px 15px;
+    text-decoration: none;
+    color: var(--text-dark);
+    transition: var(--transition);
+}
+
+.widget-box ul li a:hover {
+    background: var(--bg-light);
+    color: var(--primary-color);
+    padding-left: 20px; /* Efek geser sedikit saat hover */
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: var(--text-dark);
+    color: var(--white);
+    font-size: 0.9rem;
+}
+
+/* MEDIA QUERIES - Supaya rapi di HP */
+@media (max-width: 768px) {
+    #wrapper {
+        flex-direction: column; /* Sidebar pindah ke bawah Main */
+    }
+    
+    #main, #sidebar {
+        width: 100%;
+        border-left: none;
+    }
+
+    #container {
+        margin: 0;
+        border-radius: 0;
+    }
+}
+/* ARTIKEL LIST */
+.entry {
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.entry h2 {
+    margin-bottom: 10px;
+    font-size: 22px;
+}
+
+.entry h2 a {
+    text-decoration: none;
+    color: #333;
+}
+
+.entry h2 a:hover {
+    color: #1e5fa3;
+}
+
+.entry p {
+    color: #555;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+/* Divider */
+.divider {
+    border: none;
+    border-bottom: 1px solid #ddd;
+    margin: 15px 0;
+}
