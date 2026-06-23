@@ -7,8 +7,8 @@ Aplikasi *E-Library Management System* modern berbasis web yang mengadopsi arsit
 
 ## 👨‍💻 Identitas Pengembang
 - **Nama:** Joant Ramadhan
-- **NIM:** 312410300
-- **Kelas:** TI.24.D
+- **NIM:** 312410594
+- **Kelas:** I241D
 - **Program Studi:** Teknik Informatika
 
 ---
