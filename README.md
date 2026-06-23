@@ -100,7 +100,7 @@ Semua *endpoint* diletakkan di bawah *prefix* `/api`. Untuk mengamankan rute dat
 
 ---
 
-## 🌐 BAB 6 – Implementasi Praktikum 12 (REST API)
+## 🌐 BAB 6 – Implementasi Praktikum 12-14 (REST API)
 
 **Konsep REST API (Representational State Transfer)**
 E-Library beroperasi pada prinsip pertukaran data yang terstandardisasi dan *stateless*. Setiap *URI* merepresentasikan sebuah sumber daya (*resource*), dan aksi manipulasi atas sumber daya tersebut bergantung penuh pada *HTTP Verbs* standar (`GET`, `POST`, `PUT`, `DELETE`). Hal ini mempermudah integrasi berbagai tipe antarmuka (*client-agnostic*).
