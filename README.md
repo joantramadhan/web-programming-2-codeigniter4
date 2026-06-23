@@ -1,131 +1,337 @@
-# 📚 E-Library Management System
-> **Laporan Project Akhir & Praktikum 1–14** > Mata Kuliah: Pemrograman Web 2 | Universitas Pelita Bangsa
+# 📰 Portal Artikel Berbasis REST API
 
-Aplikasi *E-Library Management System* modern berbasis web yang mengadopsi arsitektur RESTful API dan *Single Page Application* (SPA). Dibangun secara komprehensif menggunakan **CodeIgniter 4**, **Vue.js 3**, **Tailwind CSS**, dan **MySQL**.
+> **Laporan Praktikum Pemrograman Web 2 (Praktikum 1–14)**
+> Universitas Pelita Bangsa
 
----
-
-## 👨‍💻 Identitas Pengembang
-- **Nama:** Joant Ramadhan
-- **NIM:** 312410594
-- **Kelas:** I241D
-- **Program Studi:** Teknik Informatika
+Aplikasi Portal Artikel merupakan sistem manajemen konten berbasis web yang dikembangkan secara bertahap melalui rangkaian Praktikum Pemrograman Web 2. Aplikasi ini menerapkan konsep Frontend dan Backend terpisah dengan memanfaatkan CodeIgniter 4 sebagai REST API dan Vue.js sebagai antarmuka pengguna.
 
 ---
 
-## 📖 BAB 1 – Pendahuluan
-### Latar Belakang
-Pengelolaan data buku secara manual memiliki berbagai keterbatasan seperti kesulitan pencarian data, proses pembaruan yang lambat, dan kurangnya akses informasi secara *real-time*. Untuk mengatasi permasalahan operasional tersebut, dikembangkan sistem E-Library ini yang memisahkan layanan antarmuka (frontend) dan logika server (backend) agar pengelolaan perpustakaan menjadi lebih terstruktur dan *scalable*.
+## 👨‍💻 Identitas Mahasiswa
 
-### Tujuan Utama
-1. Mengimplementasikan capaian materi Praktikum 1–14.
-2. Membangun aplikasi perpustakaan digital terpadu berbasis **REST API**.
-3. Menerapkan konsep antarmuka mulus tanpa interupsi *reload* menggunakan **Single Page Application (SPA)**.
-4. Mengintegrasikan frontend dan backend melalui komunikasi data asinkron.
+* **Nama:** Joant Ramadhan
+* **NIM:** 312410594
+* **Kelas:** I241D
+* **Program Studi:** Teknik Informatika
 
 ---
 
-## 🛠️ BAB 2 – Implementasi Praktikum 1–7 (Fundamental Web)
-- **Praktikum 1 (HTML Dasar):** Membangun struktur kerangka semantik untuk halaman *Home*, *Login*, dan layout panel *Dashboard*.
-- **Praktikum 2 (CSS Dasar):** Merancang tata letak yang rapi, memastikan antarmuka adaptif (*responsive design*), dan menyiapkan kerangka tema *Dark Mode*.
-- **Praktikum 3 (Framework CSS):** Melakukan percepatan styling berpendekatan *utility-first* menggunakan **Tailwind CSS**. Mengaplikasikan komponen *grid system*, perancangan form, serta *card* buku yang bergaya premium.
-- **Praktikum 4 (PHP Dasar):** Menyusun fondasi kontroler logika, *request handling*, hingga merakit struktur balasan dalam bentuk JSON statis.
-- **Praktikum 5 (Database MySQL):** Membangun skema relasional tabel inti untuk entitas `users`, `kategori`, dan `buku`.
-- **Praktikum 6 (CRUD):** Implementasi sirkulasi siklus data penuh (Create, Read, Update, Delete) di setiap modul entitas.
-- **Praktikum 7 (Arsitektur MVC):** Menerapkan standar pola desain Model-View-Controller secara modular pada platform CodeIgniter 4.
+# 📖 BAB 1 – Pendahuluan
+
+## Latar Belakang
+
+Penyampaian informasi melalui media digital menjadi kebutuhan yang semakin penting dalam perkembangan teknologi web. Salah satu bentuk implementasinya adalah Portal Artikel yang memungkinkan pengguna mengelola dan mempublikasikan informasi secara terstruktur.
+
+Melalui proyek ini, mahasiswa mempelajari penerapan teknologi frontend dan backend modern dengan menggabungkan Vue.js, CodeIgniter 4, REST API, dan MySQL ke dalam satu aplikasi yang terintegrasi.
+
+## Tujuan
+
+1. Memahami konsep pengembangan aplikasi web modern.
+2. Menerapkan arsitektur REST API menggunakan CodeIgniter 4.
+3. Mengembangkan antarmuka Single Page Application menggunakan Vue.js.
+4. Mengintegrasikan frontend dan backend melalui komunikasi data berbasis JSON.
+5. Mengimplementasikan operasi CRUD pada data artikel dan kategori.
 
 ---
+
+# 🛠️ BAB 2 – Implementasi Praktikum 1–7
+
+Pada tahap awal praktikum, fokus pembelajaran diarahkan pada penguasaan dasar pengembangan web mulai dari struktur halaman menggunakan HTML, pengaturan tampilan dengan CSS, pengolahan data menggunakan PHP, hingga perancangan basis data MySQL.
+
+Materi-materi tersebut menjadi fondasi utama sebelum memasuki pengembangan aplikasi Portal Artikel yang lebih kompleks pada praktikum selanjutnya.
 
 ## ⚡ BAB 3 – Implementasi Praktikum 8 (Vue.js SPA)
-Frontend direpresentasikan dengan pendekatan SPA (Single Page Application) menggunakan ekosistem Vue.js.
 
-- **Struktur Halaman Utama:** Komponen dipecah menjadi modul publik (Home, Katalog, Login) dan modul terproteksi (Dashboard Pusat, Manajemen Buku, Manajemen Kategori, Manajemen User).
-- **Sistem Routing (Vue Router):** Menangani perpindahan navigasi halus di sisi klien.
-  ```javascript
-  const routes = [
-    { path: '/', component: Home },
-    { path: '/katalog', component: Katalog },
-    { path: '/login', component: Login }
-  ];
+Frontend aplikasi Portal Artikel dikembangkan menggunakan Vue.js dengan pendekatan Single Page Application (SPA). Pendekatan ini memungkinkan perpindahan halaman dilakukan tanpa melakukan reload penuh sehingga pengalaman pengguna menjadi lebih cepat dan responsif.
 
+### Struktur Halaman
 
- ## 🔒 BAB 4 – Implementasi Praktikum 9–10 (AJAX dan Authentication)
+Aplikasi dibagi menjadi beberapa halaman utama:
 
-**Asynchronous JavaScript and XML (AJAX) dengan Axios**
-Pertukaran data asinkron pada proyek ini dikelola secara penuh oleh **Axios**, sebuah pustaka *Promise-based HTTP client*. Axios beroperasi sebagai *API Service* utama di sisi *frontend* untuk berinteraksi dengan *backend* tanpa memicu *reload* halaman. Seluruh *request* ke server dilakukan di balik layar, menghasilkan antarmuka yang sangat responsif.
+* Halaman Login
+* Dashboard
+* Manajemen Artikel
+* Manajemen Kategori
+* Halaman Publik Artikel
 
-**Sistem Autentikasi dan Local Storage**
-E-Library menggunakan arsitektur *stateless*, di mana status sesi pengguna tidak disimpan di *memory* server. Sebagai gantinya, sistem menerapkan **Token Authentication**.
-Setelah pengguna berhasil melakukan login, *backend* akan menerbitkan token akses unik yang kemudian disimpan oleh *frontend* ke dalam **Local Storage** pada peramban (*browser*) pengguna. Token ini bertindak sebagai "kunci pas" virtual.
+### Vue Router
 
-**Alur Login (Login Flow)**
-1. Pengguna memasukkan `useremail` dan `userpassword` pada komponen `<Login/>`.
-2. Axios mengirim *HTTP POST request* berisi kredensial tersebut ke *endpoint* autentikasi *backend*.
-3. Sistem *backend* mengevaluasi kredensial. Sesuai dengan spesifikasi arsitektur proyek ini, sistem memvalidasi kata sandi dengan mencocokkannya secara **plain text** (tanpa enkripsi) langsung terhadap *record* di dalam *database* MySQL.
-4. Jika kredensial *plain text* tersebut valid, server menghasilkan *token* otorisasi dan merespons dengan *HTTP 200 OK* berserta *payload token*.
-5. Vue.js menangkap respons tersebut, menyimpan *token* ke *Local Storage*, dan mengarahkan pengguna ke halaman Dasbor.
+Vue Router digunakan untuk mengatur navigasi antar halaman. Setiap halaman direpresentasikan sebagai komponen yang akan dirender sesuai dengan URL yang diakses pengguna.
 
-**Alur Logout (Logout Flow)**
-Proses *logout* dilakukan murni di sisi klien. Aplikasi mengeksekusi fungsi yang akan menghapus *token* otorisasi dari *Local Storage*, mengosongkan *state* pengguna di Vue, lalu menggunakan Vue Router untuk melakukan *redirect* paksa kembali ke halaman Login. 
+Keuntungan penggunaan Vue Router antara lain:
 
-**Route Protection (Navigasi Terproteksi)**
-Untuk menjaga rute internal seperti `/dashboard`, `/buku`, dan `/user` dari akses publik, Vue Router dikonfigurasi menggunakan *Navigation Guards* (`beforeEach`). Sistem akan memeriksa keberadaan *token* di *Local Storage* sebelum merender komponen. Jika *token* tidak ditemukan, upaya navigasi dicekal dan dialihkan ke rute `/login`.
+* Navigasi lebih cepat
+* Tidak memerlukan reload halaman
+* Struktur aplikasi lebih modular
+* Mendukung route protection
 
----
+### Komponen Vue
 
-## ⚙️ BAB 5 – Implementasi Praktikum 11 (CodeIgniter 4)
+Setiap fitur dikembangkan menggunakan komponen yang terpisah sehingga lebih mudah dipelihara dan dikembangkan.
 
-**Struktur Direktori Backend (CI4)**
-*Backend* E-Library menerapkan pola arsitektur **MVC (Model-View-Controller)** yang disediakan oleh CodeIgniter 4. Dalam konteks REST API, fungsi *View* ditiadakan, sehingga arsitektur lebih berfokus pada pengolahan aliran data (*Controller*) dan abstraksi skema *database* (*Model*).
+Contoh komponen:
 
-**Controller**
-*Controller* berfungsi sebagai otak *backend* yang menangkap *request*, memvalidasi data masukan, berkoordinasi dengan *Model*, dan merakit respons *JSON*. Proyek ini mendefinisikan *controller* berikut:
-1. **AuthController:** Mengatur verifikasi identitas (dengan algoritma komparasi *password* secara *plain text*) dan penerbitan *token*.
-2. **DashboardController:** Mengagregasi data statistik sistem (seperti total buku dan total pengguna) untuk dirender pada *widget dashboard*.
-3. **BukuController:** Memuat logika CRUD untuk entitas buku dan menangani unggahan (*upload*) berkas statis (cover buku).
-4. **KategoriController:** Menangani pengelolaan klasifikasi/kategori buku, termasuk pembuatan *slug* berbasis URL secara otomatis.
-5. **UserController:** Mengatur registrasi dan manajemen profil administrator maupun keanggotaan.
-
-**Model**
-*Model* menjembatani aplikasi dengan *database* MySQL secara presisi. Setiap tabel direpresentasikan oleh satu *Model* independen:
-1. **BukuModel:** Terhubung ke tabel `buku`, mengelola *query* pencarian dan filter *join* dengan entitas kategori.
-2. **KategoriModel:** Terhubung ke tabel `kategori`.
-3. **UserModel:** Terhubung ke tabel `users`.
-
-**Routing dan Filter Authentication**
-Semua *endpoint* diletakkan di bawah *prefix* `/api`. Untuk mengamankan rute data sensitif, diterapkan **CI4 Filter Authentication**. Filter ini bertindak sebagai interseptor atau penjaga gerbang (*middleware*) yang menolak semua *HTTP Request* yang masuk ke *controller* terkait jika *request* tersebut tidak membawa *Bearer Token* yang sah pada *Header Authorization*.
-
-**Sistem Upload Cover Buku**
-*BukuController* memfasilitasi *upload* berkas asinkron. Data berkas dikirim dari *frontend* menggunakan format `multipart/form-data`. *Controller* akan mencegat *file*, memvalidasi ekstensi (MIME type) serta ukuran maksimalnya (misalnya maksimal 2MB), lalu memindahkan (*move*) file gambar secara fisik ke direktori `public/uploads/` di server *backend*, sembari menyimpan lintasan nama (*path*) berkas tersebut ke *database*.
+* Login.js
+* Dashboard.js
+* Artikel.js
+* Kategori.js
+* Home.js
 
 ---
 
-## 🌐 BAB 6 – Implementasi Praktikum 12-14 (REST API)
+# 🔒 BAB 4 – Implementasi Praktikum 9 (AJAX dan Axios)
 
-**Konsep REST API (Representational State Transfer)**
-E-Library beroperasi pada prinsip pertukaran data yang terstandardisasi dan *stateless*. Setiap *URI* merepresentasikan sebuah sumber daya (*resource*), dan aksi manipulasi atas sumber daya tersebut bergantung penuh pada *HTTP Verbs* standar (`GET`, `POST`, `PUT`, `DELETE`). Hal ini mempermudah integrasi berbagai tipe antarmuka (*client-agnostic*).
+Pada praktikum ini dipelajari komunikasi data antara frontend dan backend menggunakan konsep AJAX.
 
-**Daftar Endpoint API E-Library**
-Sistem *backend* memaparkan *endpoints* operasional sebagai berikut:
-* `POST /api/login` *(Publik)*
-* `GET /api/dashboard` *(Terproteksi)*
-* `GET /api/buku` *(Publik/Terproteksi)*
-* `POST /api/buku` *(Terproteksi)*
-* `PUT /api/buku/{id}` *(Terproteksi)*
-* `DELETE /api/buku/{id}` *(Terproteksi)*
-* `GET /api/kategori` *(Publik/Terproteksi)*
-* `POST /api/kategori` *(Terproteksi)*
-* `PUT /api/kategori/{id}` *(Terproteksi)*
-* `DELETE /api/kategori/{id}` *(Terproteksi)*
-* `GET /api/user` *(Terproteksi)*
-* `POST /api/user` *(Terproteksi)*
-* `PUT /api/user/{id}` *(Terproteksi)*
-* `DELETE /api/user/{id}` *(Terproteksi)*
+### Axios
 
-**Contoh Format Request & Response JSON**
-Format pertukaran data distandardisasi menggunakan format JSON (*JavaScript Object Notation*). 
-*Contoh Request (POST /api/kategori):*
-```json
-{
-  "nama_kategori": "Teknologi Informasi"
-}
+Axios digunakan sebagai HTTP Client untuk mengirim request ke REST API yang disediakan oleh CodeIgniter 4.
+
+Fungsi utama Axios dalam aplikasi:
+
+* Mengambil data artikel
+* Menambahkan artikel baru
+* Memperbarui artikel
+* Menghapus artikel
+* Melakukan proses login
+
+### Keuntungan Penggunaan Axios
+
+* Sintaks lebih sederhana
+* Mendukung Promise
+* Penanganan error lebih mudah
+* Terintegrasi dengan Vue.js
+
+### Implementasi pada Portal Artikel
+
+Setiap data yang ditampilkan pada halaman artikel dan kategori berasal dari API sehingga perubahan data dapat langsung terlihat tanpa perlu melakukan refresh halaman.
+
+---
+
+# 🔐 BAB 5 – Implementasi Praktikum 10 (Authentication)
+
+Authentication merupakan proses verifikasi pengguna sebelum dapat mengakses fitur administrasi.
+
+### Sistem Login
+
+Pengguna memasukkan username dan password pada halaman login.
+
+Setelah tombol login ditekan:
+
+1. Data dikirim ke backend menggunakan Axios.
+2. Backend melakukan validasi akun.
+3. Jika valid, sistem mengirimkan token autentikasi.
+4. Token disimpan pada Local Storage.
+5. Pengguna diarahkan ke Dashboard.
+
+### Logout
+
+Logout dilakukan dengan menghapus token dari Local Storage sehingga pengguna harus melakukan login kembali untuk mengakses fitur administrasi.
+
+### Route Protection
+
+Halaman administrasi hanya dapat diakses jika token autentikasi tersedia. Jika token tidak ditemukan, pengguna akan diarahkan kembali ke halaman login.
+
+---
+
+# ⚙️ BAB 6 – Implementasi Praktikum 11 (CodeIgniter 4)
+
+Pada tahap ini aplikasi backend mulai dibangun menggunakan framework CodeIgniter 4.
+
+### Arsitektur MVC
+
+CodeIgniter 4 menerapkan pola Model-View-Controller (MVC) untuk memisahkan logika aplikasi.
+
+### Controller
+
+Controller bertugas menerima request dari frontend dan mengembalikan response dalam format JSON.
+
+Controller yang digunakan antara lain:
+
+* AuthController
+* ArtikelController
+* KategoriController
+* DashboardController
+
+### Model
+
+Model digunakan untuk berinteraksi dengan database.
+
+Model yang digunakan:
+
+* ArtikelModel
+* KategoriModel
+* UserModel
+
+### Routing
+
+Routing digunakan untuk menghubungkan URL dengan controller yang sesuai sehingga setiap endpoint dapat diakses melalui URL tertentu.
+
+---
+
+# 🌐 BAB 7 – Implementasi Praktikum 12 (REST API)
+
+REST API digunakan sebagai penghubung antara frontend Vue.js dan backend CodeIgniter 4.
+
+### Konsep REST API
+
+REST API memungkinkan pertukaran data menggunakan format JSON melalui protokol HTTP.
+
+Metode yang digunakan:
+
+| Method | Fungsi           |
+| ------ | ---------------- |
+| GET    | Mengambil data   |
+| POST   | Menambah data    |
+| PUT    | Memperbarui data |
+| DELETE | Menghapus data   |
+
+### Endpoint Artikel
+
+```http
+GET /api/artikel
+POST /api/artikel
+PUT /api/artikel/{id}
+DELETE /api/artikel/{id}
+```
+
+### Endpoint Kategori
+
+```http
+GET /api/kategori
+POST /api/kategori
+PUT /api/kategori/{id}
+DELETE /api/kategori/{id}
+```
+
+### Endpoint Login
+
+```http
+POST /api/login
+```
+
+### Format Response
+
+Seluruh data dikirim menggunakan format JSON sehingga dapat diproses dengan mudah oleh frontend.
+
+---
+
+# 🔄 BAB 8 – Implementasi Praktikum 13 (Integrasi Frontend dan Backend)
+
+Setelah frontend dan backend selesai dikembangkan secara terpisah, tahap berikutnya adalah melakukan integrasi.
+
+### Arsitektur Sistem
+
+```text
+Vue.js Frontend
+       │
+       │ Axios
+       ▼
+CodeIgniter 4 REST API
+       │
+       ▼
+MySQL Database
+```
+
+### Proses Integrasi
+
+1. Frontend mengirim request menggunakan Axios.
+2. Backend menerima request.
+3. Controller memproses data.
+4. Model berinteraksi dengan database.
+5. Response JSON dikirim kembali ke frontend.
+6. Vue.js menampilkan data kepada pengguna.
+
+### Hasil Integrasi
+
+Integrasi berhasil dilakukan sehingga seluruh fitur CRUD dapat berjalan dengan baik.
+
+---
+
+# 🚀 BAB 9 – Implementasi Praktikum 14 (Project Akhir Portal Artikel)
+
+Praktikum terakhir merupakan tahap penyempurnaan seluruh materi yang telah dipelajari menjadi sebuah aplikasi Portal Artikel yang utuh.
+
+### Fitur Utama
+
+#### Login
+
+Digunakan untuk membatasi akses ke halaman administrasi.
+
+#### Dashboard
+
+Menampilkan ringkasan informasi sistem.
+
+#### Manajemen Artikel
+
+Fitur yang tersedia:
+
+* Menampilkan artikel
+* Menambah artikel
+* Mengubah artikel
+* Menghapus artikel
+
+#### Manajemen Kategori
+
+Fitur yang tersedia:
+
+* Menampilkan kategori
+* Menambah kategori
+* Mengubah kategori
+* Menghapus kategori
+
+#### REST API
+
+Seluruh data dikelola melalui REST API sehingga frontend dan backend dapat bekerja secara independen.
+
+#### Single Page Application
+
+Navigasi dilakukan tanpa reload halaman sehingga pengalaman pengguna menjadi lebih baik.
+
+---
+
+# 📊 BAB 10 – Pengujian Sistem
+
+### Pengujian Login
+
+| Skenario                      | Hasil            |
+| ----------------------------- | ---------------- |
+| Login dengan data valid       | Berhasil         |
+| Login dengan data tidak valid | Berhasil ditolak |
+
+### Pengujian Artikel
+
+| Skenario          | Hasil    |
+| ----------------- | -------- |
+| Tambah artikel    | Berhasil |
+| Ubah artikel      | Berhasil |
+| Hapus artikel     | Berhasil |
+| Tampilkan artikel | Berhasil |
+
+### Pengujian Kategori
+
+| Skenario           | Hasil    |
+| ------------------ | -------- |
+| Tambah kategori    | Berhasil |
+| Ubah kategori      | Berhasil |
+| Hapus kategori     | Berhasil |
+| Tampilkan kategori | Berhasil |
+
+### Pengujian API
+
+| Endpoint | Status   |
+| -------- | -------- |
+| Login    | Berhasil |
+| Artikel  | Berhasil |
+| Kategori | Berhasil |
+
+---
+
+# 📝 BAB 11 – Kesimpulan
+
+Melalui rangkaian Praktikum Pemrograman Web 2, telah berhasil dikembangkan sebuah aplikasi Portal Artikel berbasis web yang memanfaatkan teknologi modern seperti Vue.js, CodeIgniter 4, REST API, dan MySQL.
+
+Setiap praktikum memberikan kontribusi terhadap pengembangan sistem, dimulai dari pemahaman dasar HTML dan CSS, pengelolaan data menggunakan PHP dan MySQL, implementasi pola MVC, penggunaan Vue.js untuk membangun Single Page Application, hingga integrasi frontend dan backend menggunakan REST API.
+
+Hasil akhir menunjukkan bahwa aplikasi mampu menjalankan proses autentikasi pengguna, pengelolaan artikel, pengelolaan kategori, serta komunikasi data secara real-time antara frontend dan backend. Selain memenuhi tujuan pembelajaran mata kuliah Pemrograman Web 2, proyek ini juga memberikan pengalaman praktis dalam membangun aplikasi web modern yang terstruktur dan mudah dikembangkan di masa mendatang.
+
